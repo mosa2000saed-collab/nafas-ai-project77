@@ -60,7 +60,7 @@ export default function Reports() {
       className="space-y-6"
     >
       <div className="flex flex-wrap items-center justify-between gap-4">
-        <h2 className="text-2xl font-bold">{t('reports', lang)}</h2>
+        <h2 className="text-2xl font-bold font-display">{t('reports', lang)}</h2>
         <div className="flex items-center gap-3">
           <div className="relative">
             <button
@@ -78,7 +78,7 @@ export default function Reports() {
                     key={p.key}
                     onClick={() => { setPeriod(p.key); setDropdownOpen(false); }}
                     className={`w-full text-left px-4 py-2.5 text-sm hover:bg-[var(--bg-secondary)] transition-colors ${
-                      period === p.key ? 'text-primary-500 font-medium' : 'text-[var(--text-secondary)]'
+                      period === p.key ? 'text-saudi-green font-medium' : 'text-[var(--text-secondary)]'
                     }`}
                   >
                     {p.label}
@@ -87,15 +87,15 @@ export default function Reports() {
               </div>
             )}
           </div>
-          <button className="btn-secondary flex items-center gap-2 text-sm">
+          <button className="btn-outline flex items-center gap-2 text-sm">
             <Download className="w-4 h-4" />
             {t('downloadPDF', lang)}
           </button>
-          <button className="btn-secondary flex items-center gap-2 text-sm">
+          <button className="btn-outline flex items-center gap-2 text-sm">
             <FileText className="w-4 h-4" />
             {t('exportExcel', lang)}
           </button>
-          <button className="btn-secondary flex items-center gap-2 text-sm">
+          <button className="btn-outline flex items-center gap-2 text-sm">
             <Share2 className="w-4 h-4" />
             {t('shareReport', lang)}
           </button>
@@ -104,45 +104,45 @@ export default function Reports() {
 
       {/* Charts */}
       <div className="grid lg:grid-cols-2 gap-6">
-        <div className="card p-5">
+        <div className="card-saudi p-5">
           <h3 className="text-lg font-semibold mb-4">{lang === 'ar' ? 'اتجاه الكربون' : 'Carbon Trend'}</h3>
           <ResponsiveContainer width="100%" height={250}>
             <AreaChart data={carbonTrend}>
               <defs>
                 <linearGradient id="repCarbonGrad" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="5%" stopColor="#10b981" stopOpacity={0.3} />
-                  <stop offset="95%" stopColor="#10b981" stopOpacity={0} />
+                  <stop offset="5%" stopColor="#165d31" stopOpacity={0.3} />
+                  <stop offset="95%" stopColor="#165d31" stopOpacity={0} />
                 </linearGradient>
               </defs>
               <CartesianGrid strokeDasharray="3 3" stroke="var(--border-color)" />
               <XAxis dataKey="month" stroke="var(--text-secondary)" fontSize={12} />
               <YAxis stroke="var(--text-secondary)" fontSize={12} />
               <Tooltip contentStyle={{ backgroundColor: 'var(--bg-card)', border: '1px solid var(--border-color)', borderRadius: '12px' }} />
-              <Area type="monotone" dataKey="value" stroke="#10b981" fill="url(#repCarbonGrad)" />
+              <Area type="monotone" dataKey="value" stroke="#165d31" fill="url(#repCarbonGrad)" />
             </AreaChart>
           </ResponsiveContainer>
         </div>
 
-        <div className="card p-5">
+        <div className="card-saudi p-5">
           <h3 className="text-lg font-semibold mb-4">{lang === 'ar' ? 'اتجاه الطاقة' : 'Energy Trend'}</h3>
           <ResponsiveContainer width="100%" height={250}>
             <AreaChart data={energyTrend}>
               <defs>
                 <linearGradient id="repEnergyGrad" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="5%" stopColor="#f59e0b" stopOpacity={0.3} />
-                  <stop offset="95%" stopColor="#f59e0b" stopOpacity={0} />
+                  <stop offset="5%" stopColor="#c9a84c" stopOpacity={0.3} />
+                  <stop offset="95%" stopColor="#c9a84c" stopOpacity={0} />
                 </linearGradient>
               </defs>
               <CartesianGrid strokeDasharray="3 3" stroke="var(--border-color)" />
               <XAxis dataKey="month" stroke="var(--text-secondary)" fontSize={12} />
               <YAxis stroke="var(--text-secondary)" fontSize={12} />
               <Tooltip contentStyle={{ backgroundColor: 'var(--bg-card)', border: '1px solid var(--border-color)', borderRadius: '12px' }} />
-              <Area type="monotone" dataKey="value" stroke="#f59e0b" fill="url(#repEnergyGrad)" />
+              <Area type="monotone" dataKey="value" stroke="#c9a84c" fill="url(#repEnergyGrad)" />
             </AreaChart>
           </ResponsiveContainer>
         </div>
 
-        <div className="card p-5">
+        <div className="card-saudi p-5">
           <h3 className="text-lg font-semibold mb-4">{lang === 'ar' ? 'اتجاه المياه' : 'Water Trend'}</h3>
           <ResponsiveContainer width="100%" height={250}>
             <AreaChart data={waterTrend}>
@@ -161,7 +161,7 @@ export default function Reports() {
           </ResponsiveContainer>
         </div>
 
-        <div className="card p-5">
+        <div className="card-saudi p-5">
           <h3 className="text-lg font-semibold mb-4">{lang === 'ar' ? 'مقارنة الأقسام' : 'Department Comparison'}</h3>
           <ResponsiveContainer width="100%" height={250}>
             <BarChart data={deptComparison}>
@@ -169,7 +169,7 @@ export default function Reports() {
               <XAxis dataKey="name" stroke="var(--text-secondary)" fontSize={12} />
               <YAxis stroke="var(--text-secondary)" fontSize={12} />
               <Tooltip contentStyle={{ backgroundColor: 'var(--bg-card)', border: '1px solid var(--border-color)', borderRadius: '12px' }} />
-              <Bar dataKey="value" fill="#8b5cf6" radius={[4, 4, 0, 0]} />
+              <Bar dataKey="value" fill="#c9a84c" radius={[4, 4, 0, 0]} />
             </BarChart>
           </ResponsiveContainer>
         </div>

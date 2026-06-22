@@ -29,7 +29,7 @@ export default function DataCollection() {
     }, 2000);
   };
 
-  const inputClass = "w-full px-4 py-3 rounded-xl bg-[var(--bg-secondary)] border border-[var(--border-color)] text-[var(--text-primary)] focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all";
+  const inputClass = "w-full px-4 py-3 rounded-xl bg-[var(--bg-secondary)] border border-[var(--border-color)] text-[var(--text-primary)] focus:outline-none focus:ring-2 focus:ring-saudi-green focus:border-transparent transition-all";
 
   return (
     <motion.div
@@ -37,8 +37,8 @@ export default function DataCollection() {
       animate={{ opacity: 1, y: 0 }}
       className="max-w-3xl mx-auto space-y-6"
     >
-      <div className="card p-6">
-        <h2 className="text-2xl font-bold mb-6">{t('dataCollectionNav', lang)}</h2>
+      <div className="card-saudi p-6">
+        <h2 className="text-2xl font-bold mb-6 font-display">{t('dataCollectionNav', lang)}</h2>
 
         {/* Tabs */}
         <div className="flex flex-wrap gap-2 mb-6">
@@ -48,7 +48,7 @@ export default function DataCollection() {
               onClick={() => { setActiveTab(tab.key); setSubmitted(false); }}
               className={`flex items-center gap-2 px-4 py-2.5 rounded-xl text-sm font-medium transition-all ${
                 activeTab === tab.key
-                  ? 'bg-primary-500 text-white shadow-lg shadow-primary-500/25'
+                  ? 'bg-saudi-green text-white shadow-lg shadow-saudi-green/20'
                   : 'bg-[var(--bg-secondary)] text-[var(--text-secondary)] hover:text-[var(--text-primary)]'
               }`}
             >
@@ -64,7 +64,7 @@ export default function DataCollection() {
             animate={{ opacity: 1, scale: 1 }}
             className="flex flex-col items-center justify-center py-12"
           >
-            <CheckCircle className="w-16 h-16 text-green-500 mb-4" />
+            <CheckCircle className="w-16 h-16 text-palm-500 mb-4" />
             <p className="text-lg font-semibold">{lang === 'ar' ? 'تم إرسال البيانات بنجاح!' : 'Data submitted successfully!'}</p>
           </motion.div>
         ) : (
@@ -142,7 +142,7 @@ export default function DataCollection() {
               </motion.div>
             )}
 
-            <button type="submit" className="w-full btn-primary flex items-center justify-center gap-2">
+            <button type="submit" className="w-full btn-saudi flex items-center justify-center gap-2">
               <Send className="w-4 h-4" />
               {t('submitData', lang)}
             </button>
@@ -151,12 +151,12 @@ export default function DataCollection() {
       </div>
 
       {/* Workflow */}
-      <div className="card p-6">
+      <div className="card-saudi p-6">
         <h3 className="text-lg font-semibold mb-4">{lang === 'ar' ? 'سير العمل' : 'Workflow'}</h3>
         <div className="flex flex-wrap items-center gap-3">
           {['Submit', 'Database Update', 'Dashboard Update', 'AI Analysis'].map((step, i) => (
             <div key={step} className="flex items-center gap-3">
-              <div className="px-4 py-2 rounded-lg bg-primary-100 dark:bg-primary-900/30 text-primary-700 dark:text-primary-300 text-sm font-medium">
+              <div className="px-4 py-2 rounded-lg bg-palm-100 dark:bg-palm-900/30 text-palm-700 dark:text-palm-300 text-sm font-medium">
                 {step}
               </div>
               {i < 3 && (

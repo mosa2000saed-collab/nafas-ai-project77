@@ -28,15 +28,9 @@ const buildings: BuildingRoom[] = [
 ];
 
 const statusColors = {
-  normal: 'bg-green-500',
-  warning: 'bg-yellow-500',
+  normal: 'bg-palm-500',
+  warning: 'bg-gold',
   critical: 'bg-red-500',
-};
-
-const statusText: Record<string, 'normal' | 'warning' | 'critical'> = {
-  normal: 'normal',
-  warning: 'warning',
-  critical: 'critical',
 };
 
 export default function DigitalTwin() {
@@ -62,15 +56,15 @@ export default function DigitalTwin() {
       className="space-y-6"
     >
       <div className="flex items-center justify-between">
-        <h2 className="text-2xl font-bold">{t('digitalTwinNav', lang)}</h2>
+        <h2 className="text-2xl font-bold font-display">{t('digitalTwinNav', lang)}</h2>
         <div className="flex items-center gap-4">
           <div className="flex items-center gap-2 text-sm">
             <div className="flex items-center gap-1">
-              <div className="w-3 h-3 rounded-full bg-green-500" />
+              <div className="w-3 h-3 rounded-full bg-palm-500" />
               <span className="text-[var(--text-secondary)]">{t('normal', lang)}</span>
             </div>
             <div className="flex items-center gap-1">
-              <div className="w-3 h-3 rounded-full bg-yellow-500" />
+              <div className="w-3 h-3 rounded-full bg-gold" />
               <span className="text-[var(--text-secondary)]">{t('warning', lang)}</span>
             </div>
             <div className="flex items-center gap-1">
@@ -89,7 +83,7 @@ export default function DigitalTwin() {
             onClick={() => setFilter(type.key)}
             className={`px-4 py-2 rounded-xl text-sm font-medium transition-all ${
               filter === type.key
-                ? 'bg-primary-500 text-white shadow-lg shadow-primary-500/25'
+                ? 'bg-saudi-green text-white shadow-lg shadow-saudi-green/20'
                 : 'bg-[var(--bg-secondary)] text-[var(--text-secondary)] hover:text-[var(--text-primary)]'
             }`}
           >
@@ -99,7 +93,7 @@ export default function DigitalTwin() {
       </div>
 
       {/* School Map */}
-      <div className="card p-6">
+      <div className="card-saudi p-6">
         <h3 className="text-lg font-semibold mb-4">{t('schoolModel', lang)}</h3>
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
           {filteredBuildings.map((room) => (
@@ -110,18 +104,18 @@ export default function DigitalTwin() {
               onClick={() => setSelectedRoom(room)}
               className={`relative p-5 rounded-xl border-2 transition-all text-left ${
                 room.status === 'normal'
-                  ? 'border-green-200 dark:border-green-900/50 bg-green-50/50 dark:bg-green-900/10'
+                  ? 'border-palm-200 dark:border-palm-900/50 bg-palm-50/50 dark:bg-palm-900/10'
                   : room.status === 'warning'
-                  ? 'border-yellow-200 dark:border-yellow-900/50 bg-yellow-50/50 dark:bg-yellow-900/10'
+                  ? 'border-gold/50 dark:border-gold/30 bg-gold-light'
                   : 'border-red-200 dark:border-red-900/50 bg-red-50/50 dark:bg-red-900/10'
               }`}
             >
               <div className={`absolute top-3 right-3 w-3 h-3 rounded-full ${statusColors[room.status]}`} />
               <Building2 className={`w-8 h-8 mb-3 ${
                 room.status === 'normal'
-                  ? 'text-green-500'
+                  ? 'text-palm-500'
                   : room.status === 'warning'
-                  ? 'text-yellow-500'
+                  ? 'text-gold'
                   : 'text-red-500'
               }`} />
               <div className="font-medium text-sm">{lang === 'ar' ? room.nameAr : room.name}</div>
@@ -151,7 +145,7 @@ export default function DigitalTwin() {
               className="bg-[var(--bg-card)] border border-[var(--border-color)] rounded-2xl p-6 max-w-md w-full shadow-2xl"
             >
               <div className="flex items-center justify-between mb-6">
-                <h3 className="text-xl font-bold">{lang === 'ar' ? selectedRoom.nameAr : selectedRoom.name}</h3>
+                <h3 className="text-xl font-bold font-display">{lang === 'ar' ? selectedRoom.nameAr : selectedRoom.name}</h3>
                 <button
                   onClick={() => setSelectedRoom(null)}
                   className="p-2 rounded-lg hover:bg-[var(--bg-secondary)] text-[var(--text-secondary)]"
@@ -192,8 +186,8 @@ export default function DigitalTwin() {
                 </div>
 
                 <div className="flex items-center gap-4 p-4 rounded-xl bg-[var(--bg-secondary)]">
-                  <div className="w-10 h-10 rounded-xl bg-yellow-100 dark:bg-yellow-900/30 flex items-center justify-center">
-                    <Zap className="w-5 h-5 text-yellow-500" />
+                  <div className="w-10 h-10 rounded-xl bg-gold-light flex items-center justify-center">
+                    <Zap className="w-5 h-5 text-gold" />
                   </div>
                   <div>
                     <div className="text-sm text-[var(--text-secondary)]">{t('energyUsage', lang)}</div>
@@ -202,8 +196,8 @@ export default function DigitalTwin() {
                 </div>
 
                 <div className="flex items-center gap-4 p-4 rounded-xl bg-[var(--bg-secondary)]">
-                  <div className="w-10 h-10 rounded-xl bg-green-100 dark:bg-green-900/30 flex items-center justify-center">
-                    <Leaf className="w-5 h-5 text-green-500" />
+                  <div className="w-10 h-10 rounded-xl bg-palm-100 dark:bg-palm-900/30 flex items-center justify-center">
+                    <Leaf className="w-5 h-5 text-palm-500" />
                   </div>
                   <div>
                     <div className="text-sm text-[var(--text-secondary)]">{t('carbonImpact', lang)}</div>
@@ -217,7 +211,7 @@ export default function DigitalTwin() {
                   </div>
                   <div>
                     <div className="text-sm text-[var(--text-secondary)]">{t('sustainabilityScoreNav', lang)}</div>
-                    <div className="font-semibold">{t(statusText[selectedRoom.status], lang)}</div>
+                    <div className="font-semibold">{t(selectedRoom.status, lang)}</div>
                   </div>
                 </div>
               </div>

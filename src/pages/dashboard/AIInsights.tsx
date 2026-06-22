@@ -5,10 +5,10 @@ import { t } from '../../lib/i18n';
 import { PieChart, Pie, Cell, Tooltip, ResponsiveContainer } from 'recharts';
 
 const emissionData = [
-  { name: 'Electricity', value: 62, color: '#f59e0b' },
+  { name: 'Electricity', value: 62, color: '#c9a84c' },
   { name: 'Transportation', value: 21, color: '#3b82f6' },
   { name: 'Water', value: 10, color: '#06b6d4' },
-  { name: 'Waste', value: 7, color: '#10b981' },
+  { name: 'Waste', value: 7, color: '#165d31' },
 ];
 
 const findings = [
@@ -20,8 +20,8 @@ const findings = [
 const recommendations = [
   { icon: Lightbulb, text: 'reduceACHours', color: 'text-blue-500', bg: 'bg-blue-100 dark:bg-blue-900/30' },
   { icon: Zap, text: 'installSmartSensors', color: 'text-purple-500', bg: 'bg-purple-100 dark:bg-purple-900/30' },
-  { icon: Building2, text: 'improveInsulation', color: 'text-green-500', bg: 'bg-green-100 dark:bg-green-900/30' },
-  { icon: Droplets, text: 'increaseRecycling', color: 'text-primary-500', bg: 'bg-primary-100 dark:bg-primary-900/30' },
+  { icon: Building2, text: 'improveInsulation', color: 'text-palm-500', bg: 'bg-palm-100 dark:bg-palm-900/30' },
+  { icon: Droplets, text: 'increaseRecycling', color: 'text-saudi-green', bg: 'bg-palm-100 dark:bg-palm-900/30' },
 ];
 
 export default function AIInsights() {
@@ -35,8 +35,8 @@ export default function AIInsights() {
     >
       {/* Header */}
       <div className="flex items-center justify-between">
-        <h2 className="text-2xl font-bold">{t('aiInsights', lang)}</h2>
-        <button className="btn-primary flex items-center gap-2">
+        <h2 className="text-2xl font-bold font-display">{t('aiInsights', lang)}</h2>
+        <button className="btn-saudi flex items-center gap-2">
           <Brain className="w-4 h-4" />
           {t('analyzeWithAI', lang)}
         </button>
@@ -44,7 +44,7 @@ export default function AIInsights() {
 
       {/* Emission Breakdown */}
       <div className="grid lg:grid-cols-2 gap-6">
-        <div className="card p-6">
+        <div className="card-saudi p-6">
           <h3 className="text-lg font-semibold mb-4">{t('emissionBreakdown', lang)}</h3>
           <ResponsiveContainer width="100%" height={250}>
             <PieChart>
@@ -82,7 +82,7 @@ export default function AIInsights() {
         </div>
 
         {/* Findings */}
-        <div className="card p-6">
+        <div className="card-saudi p-6">
           <h3 className="text-lg font-semibold mb-4">{t('findings', lang)}</h3>
           <div className="space-y-4">
             {findings.map((item) => (
@@ -102,7 +102,7 @@ export default function AIInsights() {
       </div>
 
       {/* Recommendations */}
-      <div className="card p-6">
+      <div className="card-saudi p-6">
         <h3 className="text-lg font-semibold mb-4">{t('recommendations', lang)}</h3>
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-4">
           {recommendations.map((rec) => (
@@ -117,23 +117,23 @@ export default function AIInsights() {
       </div>
 
       {/* Prediction */}
-      <div className="card p-6">
+      <div className="card-saudi p-6">
         <h3 className="text-lg font-semibold mb-4">{t('prediction', lang)}</h3>
         <div className="grid sm:grid-cols-3 gap-6">
           <div className="text-center p-6 rounded-xl bg-[var(--bg-secondary)]">
             <div className="text-sm text-[var(--text-secondary)] mb-2">{t('nextMonth', lang)}</div>
             <div className="text-3xl font-bold text-[var(--text-primary)]">112 tCO₂</div>
           </div>
-          <div className="text-center p-6 rounded-xl bg-green-50 dark:bg-green-900/20">
-            <div className="text-sm text-green-600 dark:text-green-400 mb-2">{t('reductionPercent', lang)}</div>
-            <div className="text-3xl font-bold text-green-600 dark:text-green-400 flex items-center justify-center gap-2">
+          <div className="text-center p-6 rounded-xl bg-palm-50 dark:bg-palm-900/20">
+            <div className="text-sm text-palm-600 dark:text-palm-400 mb-2">{t('reductionPercent', lang)}</div>
+            <div className="text-3xl font-bold text-palm-600 dark:text-palm-400 flex items-center justify-center gap-2">
               <TrendingDown className="w-6 h-6" />
               13%
             </div>
           </div>
           <div className="text-center p-6 rounded-xl bg-[var(--bg-secondary)]">
             <div className="text-sm text-[var(--text-secondary)] mb-2">{t('sustainabilityScoreNav', lang)}</div>
-            <div className="text-3xl font-bold text-primary-500">92/100</div>
+            <div className="text-3xl font-bold text-saudi-green">92/100</div>
           </div>
         </div>
       </div>

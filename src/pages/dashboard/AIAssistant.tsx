@@ -64,7 +64,6 @@ export default function AIAssistant() {
     setInput('');
     setIsTyping(true);
 
-    // Find matching mock response or generate generic
     setTimeout(() => {
       const matchedKey = Object.keys(mockResponses).find((key) =>
         messageText.toLowerCase().includes(key.toLowerCase()) ||
@@ -104,11 +103,11 @@ export default function AIAssistant() {
     >
       {/* Header */}
       <div className="flex items-center gap-3 mb-4">
-        <div className="w-10 h-10 rounded-xl bg-primary-100 dark:bg-primary-900/30 flex items-center justify-center">
-          <Bot className="w-6 h-6 text-primary-500" />
+        <div className="w-10 h-10 rounded-xl bg-saudi-green/10 dark:bg-palm-500/10 flex items-center justify-center border border-saudi-green/20">
+          <Bot className="w-6 h-6 text-saudi-green" />
         </div>
         <div>
-          <h2 className="text-xl font-bold">{t('aiAssistant', lang)}</h2>
+          <h2 className="text-xl font-bold font-display">{t('aiAssistant', lang)}</h2>
           <p className="text-xs text-[var(--text-secondary)]">
             {lang === 'ar' ? 'مدعوم بالذكاء الاصطناعي' : 'AI-Powered'}
           </p>
@@ -125,22 +124,22 @@ export default function AIAssistant() {
             className={`flex gap-3 ${msg.role === 'user' ? 'justify-end' : 'justify-start'}`}
           >
             {msg.role === 'assistant' && (
-              <div className="w-8 h-8 rounded-full bg-primary-100 dark:bg-primary-900/30 flex items-center justify-center flex-shrink-0 mt-1">
-                <Bot className="w-4 h-4 text-primary-500" />
+              <div className="w-8 h-8 rounded-full bg-saudi-green/10 dark:bg-palm-500/10 flex items-center justify-center flex-shrink-0 mt-1 border border-saudi-green/20">
+                <Bot className="w-4 h-4 text-saudi-green" />
               </div>
             )}
             <div
               className={`max-w-[80%] p-4 rounded-2xl text-sm ${
                 msg.role === 'user'
-                  ? 'bg-primary-500 text-white rounded-tr-sm'
+                  ? 'bg-saudi-green text-white rounded-tr-sm'
                   : 'bg-[var(--bg-card)] border border-[var(--border-color)] rounded-tl-sm'
               }`}
             >
               <div className="whitespace-pre-line">{msg.content}</div>
             </div>
             {msg.role === 'user' && (
-              <div className="w-8 h-8 rounded-full bg-secondary-100 dark:bg-secondary-800 flex items-center justify-center flex-shrink-0 mt-1">
-                <User className="w-4 h-4 text-secondary-600 dark:text-secondary-300" />
+              <div className="w-8 h-8 rounded-full bg-sand-200 dark:bg-sand-800 flex items-center justify-center flex-shrink-0 mt-1">
+                <User className="w-4 h-4 text-sand-600 dark:text-sand-300" />
               </div>
             )}
           </motion.div>
@@ -148,8 +147,8 @@ export default function AIAssistant() {
 
         {isTyping && (
           <div className="flex gap-3">
-            <div className="w-8 h-8 rounded-full bg-primary-100 dark:bg-primary-900/30 flex items-center justify-center flex-shrink-0">
-              <Bot className="w-4 h-4 text-primary-500" />
+            <div className="w-8 h-8 rounded-full bg-saudi-green/10 dark:bg-palm-500/10 flex items-center justify-center flex-shrink-0 border border-saudi-green/20">
+              <Bot className="w-4 h-4 text-saudi-green" />
             </div>
             <div className="bg-[var(--bg-card)] border border-[var(--border-color)] rounded-2xl rounded-tl-sm p-4">
               <div className="flex gap-1">
@@ -173,7 +172,7 @@ export default function AIAssistant() {
               onClick={() => handleSend(t(q as any, lang))}
               className="flex items-center gap-2 px-3 py-2 rounded-xl bg-[var(--bg-secondary)] text-sm text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--border-color)] transition-colors"
             >
-              <Sparkles className="w-3.5 h-3.5 text-primary-500" />
+              <Sparkles className="w-3.5 h-3.5 text-saudi-green" />
               {t(q as any, lang)}
             </button>
           ))}
@@ -193,7 +192,7 @@ export default function AIAssistant() {
         <button
           onClick={() => handleSend()}
           disabled={!input.trim() || isTyping}
-          className="p-2.5 rounded-xl bg-primary-500 text-white hover:bg-primary-600 disabled:opacity-40 transition-colors"
+          className="p-2.5 rounded-xl bg-saudi-green text-white hover:bg-palm-700 disabled:opacity-40 transition-colors"
         >
           <Send className="w-4 h-4" />
         </button>

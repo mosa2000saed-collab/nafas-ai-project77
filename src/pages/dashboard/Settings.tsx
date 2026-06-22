@@ -13,7 +13,7 @@ export default function Settings() {
   const [buildingCount, setBuildingCount] = useState(5);
   const [studentCount, setStudentCount] = useState(1200);
 
-  const inputClass = "w-full px-4 py-3 rounded-xl bg-[var(--bg-secondary)] border border-[var(--border-color)] text-[var(--text-primary)] focus:outline-none focus:ring-2 focus:ring-primary-500 focus:border-transparent transition-all";
+  const inputClass = "w-full px-4 py-3 rounded-xl bg-[var(--bg-secondary)] border border-[var(--border-color)] text-[var(--text-primary)] focus:outline-none focus:ring-2 focus:ring-saudi-green focus:border-transparent transition-all";
 
   return (
     <motion.div
@@ -21,12 +21,12 @@ export default function Settings() {
       animate={{ opacity: 1, y: 0 }}
       className="max-w-3xl mx-auto space-y-6"
     >
-      <h2 className="text-2xl font-bold">{t('settings', lang)}</h2>
+      <h2 className="text-2xl font-bold font-display">{t('settings', lang)}</h2>
 
       {/* Language */}
-      <div className="card p-6">
+      <div className="card-saudi p-6">
         <h3 className="text-lg font-semibold mb-4 flex items-center gap-2">
-          <Globe className="w-5 h-5 text-primary-500" />
+          <Globe className="w-5 h-5 text-saudi-green" />
           {t('language', lang)}
         </h3>
         <div className="flex gap-3">
@@ -34,7 +34,7 @@ export default function Settings() {
             onClick={() => setLang('en')}
             className={`flex-1 py-3 rounded-xl text-sm font-medium transition-all ${
               lang === 'en'
-                ? 'bg-primary-500 text-white shadow-lg shadow-primary-500/25'
+                ? 'bg-saudi-green text-white shadow-lg shadow-saudi-green/20'
                 : 'bg-[var(--bg-secondary)] text-[var(--text-secondary)] hover:text-[var(--text-primary)]'
             }`}
           >
@@ -44,7 +44,7 @@ export default function Settings() {
             onClick={() => setLang('ar')}
             className={`flex-1 py-3 rounded-xl text-sm font-medium transition-all ${
               lang === 'ar'
-                ? 'bg-primary-500 text-white shadow-lg shadow-primary-500/25'
+                ? 'bg-saudi-green text-white shadow-lg shadow-saudi-green/20'
                 : 'bg-[var(--bg-secondary)] text-[var(--text-secondary)] hover:text-[var(--text-primary)]'
             }`}
           >
@@ -54,9 +54,9 @@ export default function Settings() {
       </div>
 
       {/* Appearance */}
-      <div className="card p-6">
+      <div className="card-saudi p-6">
         <h3 className="text-lg font-semibold mb-4 flex items-center gap-2">
-          {isDark ? <Moon className="w-5 h-5 text-primary-500" /> : <Sun className="w-5 h-5 text-primary-500" />}
+          {isDark ? <Moon className="w-5 h-5 text-saudi-green" /> : <Sun className="w-5 h-5 text-saudi-green" />}
           {t('appearance', lang)}
         </h3>
         <div className="flex gap-3">
@@ -64,7 +64,7 @@ export default function Settings() {
             onClick={() => { if (isDark) toggleTheme(); }}
             className={`flex-1 py-3 rounded-xl text-sm font-medium transition-all flex items-center justify-center gap-2 ${
               !isDark
-                ? 'bg-primary-500 text-white shadow-lg shadow-primary-500/25'
+                ? 'bg-saudi-green text-white shadow-lg shadow-saudi-green/20'
                 : 'bg-[var(--bg-secondary)] text-[var(--text-secondary)] hover:text-[var(--text-primary)]'
             }`}
           >
@@ -75,7 +75,7 @@ export default function Settings() {
             onClick={() => { if (!isDark) toggleTheme(); }}
             className={`flex-1 py-3 rounded-xl text-sm font-medium transition-all flex items-center justify-center gap-2 ${
               isDark
-                ? 'bg-primary-500 text-white shadow-lg shadow-primary-500/25'
+                ? 'bg-saudi-green text-white shadow-lg shadow-saudi-green/20'
                 : 'bg-[var(--bg-secondary)] text-[var(--text-secondary)] hover:text-[var(--text-primary)]'
             }`}
           >
@@ -86,14 +86,14 @@ export default function Settings() {
       </div>
 
       {/* Notifications */}
-      <div className="card p-6">
+      <div className="card-saudi p-6">
         <h3 className="text-lg font-semibold mb-4 flex items-center gap-2">
-          <Bell className="w-5 h-5 text-primary-500" />
+          <Bell className="w-5 h-5 text-saudi-green" />
           {t('notifications', lang)}
         </h3>
         <div className="flex items-center justify-between p-4 rounded-xl bg-[var(--bg-secondary)]">
           <div className="flex items-center gap-3">
-            {notifications ? <Bell className="w-5 h-5 text-primary-500" /> : <BellOff className="w-5 h-5 text-[var(--text-secondary)]" />}
+            {notifications ? <Bell className="w-5 h-5 text-saudi-green" /> : <BellOff className="w-5 h-5 text-[var(--text-secondary)]" />}
             <span className="text-sm font-medium">
               {notifications ? t('enable', lang) : t('disable', lang)}
             </span>
@@ -101,7 +101,7 @@ export default function Settings() {
           <button
             onClick={() => setNotifications(!notifications)}
             className={`w-12 h-6 rounded-full transition-colors relative ${
-              notifications ? 'bg-primary-500' : 'bg-[var(--border-color)]'
+              notifications ? 'bg-saudi-green' : 'bg-[var(--border-color)]'
             }`}
           >
             <div
@@ -114,9 +114,9 @@ export default function Settings() {
       </div>
 
       {/* Carbon Targets */}
-      <div className="card p-6">
+      <div className="card-saudi p-6">
         <h3 className="text-lg font-semibold mb-4 flex items-center gap-2">
-          <Target className="w-5 h-5 text-primary-500" />
+          <Target className="w-5 h-5 text-saudi-green" />
           {t('carbonTargets', lang)}
         </h3>
         <div className="space-y-4">
@@ -128,11 +128,11 @@ export default function Settings() {
               max={200}
               value={carbonTarget}
               onChange={(e) => setCarbonTarget(parseInt(e.target.value))}
-              className="w-full h-2 rounded-lg appearance-none cursor-pointer bg-[var(--bg-secondary)] accent-primary-500"
+              className="w-full h-2 rounded-lg appearance-none cursor-pointer bg-[var(--bg-secondary)] accent-saudi-green"
             />
             <div className="flex justify-between mt-1 text-xs text-[var(--text-secondary)]">
               <span>50</span>
-              <span className="font-bold text-primary-500">{carbonTarget}</span>
+              <span className="font-bold text-saudi-green">{carbonTarget}</span>
               <span>200</span>
             </div>
           </div>
@@ -140,9 +140,9 @@ export default function Settings() {
       </div>
 
       {/* School Information */}
-      <div className="card p-6">
+      <div className="card-saudi p-6">
         <h3 className="text-lg font-semibold mb-4 flex items-center gap-2">
-          <School className="w-5 h-5 text-primary-500" />
+          <School className="w-5 h-5 text-saudi-green" />
           {t('schoolInfo', lang)}
         </h3>
         <div className="space-y-4">
@@ -160,7 +160,7 @@ export default function Settings() {
               <input type="number" value={buildingCount} onChange={(e) => setBuildingCount(parseInt(e.target.value))} className={inputClass} />
             </div>
             <div>
-              <label className="block text-sm font-medium mb-2">{t('students', lang)}</label>
+              <label className="block text-sm font-medium mb-2">{lang === 'ar' ? 'الطلاب' : 'Students'}</label>
               <input type="number" value={studentCount} onChange={(e) => setStudentCount(parseInt(e.target.value))} className={inputClass} />
             </div>
           </div>
@@ -168,9 +168,9 @@ export default function Settings() {
       </div>
 
       {/* Integrations */}
-      <div className="card p-6">
+      <div className="card-saudi p-6">
         <h3 className="text-lg font-semibold mb-4 flex items-center gap-2">
-          <Plug className="w-5 h-5 text-primary-500" />
+          <Plug className="w-5 h-5 text-saudi-green" />
           {t('integrations', lang)}
         </h3>
         <div className="space-y-3">
@@ -184,7 +184,7 @@ export default function Settings() {
                 <div className="text-xs text-[var(--text-secondary)]">REST API v1.0</div>
               </div>
             </div>
-            <span className="text-xs px-2 py-1 rounded-full bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400 font-medium">
+            <span className="text-xs px-2 py-1 rounded-full bg-palm-100 dark:bg-palm-900/30 text-palm-600 dark:text-palm-400 font-medium">
               {lang === 'ar' ? 'متصل' : 'Connected'}
             </span>
           </div>
@@ -198,7 +198,7 @@ export default function Settings() {
                 <div className="text-xs text-[var(--text-secondary)]">12 devices active</div>
               </div>
             </div>
-            <span className="text-xs px-2 py-1 rounded-full bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400 font-medium">
+            <span className="text-xs px-2 py-1 rounded-full bg-palm-100 dark:bg-palm-900/30 text-palm-600 dark:text-palm-400 font-medium">
               {lang === 'ar' ? 'متصل' : 'Connected'}
             </span>
           </div>
@@ -206,9 +206,9 @@ export default function Settings() {
       </div>
 
       {/* Account */}
-      <div className="card p-6">
+      <div className="card-saudi p-6">
         <h3 className="text-lg font-semibold mb-4 flex items-center gap-2">
-          <Shield className="w-5 h-5 text-primary-500" />
+          <Shield className="w-5 h-5 text-saudi-green" />
           {t('account', lang)}
         </h3>
         <div className="space-y-3">

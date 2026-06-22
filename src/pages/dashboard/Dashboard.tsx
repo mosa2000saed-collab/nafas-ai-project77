@@ -61,24 +61,24 @@ const transportData = [
 ];
 
 const emissionBreakdown = [
-  { name: 'Electricity', value: 62, color: '#f59e0b' },
+  { name: 'Electricity', value: 62, color: '#c9a84c' },
   { name: 'Transportation', value: 21, color: '#3b82f6' },
   { name: 'Water', value: 10, color: '#06b6d4' },
-  { name: 'Waste', value: 7, color: '#10b981' },
+  { name: 'Waste', value: 7, color: '#165d31' },
 ];
 
 const statCards = [
-  { key: 'carbonFootprint', value: '125 tCO₂', icon: Leaf, color: 'text-green-500', bg: 'bg-green-100 dark:bg-green-900/30', trend: '-12%' },
-  { key: 'electricityUsage', value: '4,200 kWh', icon: Zap, color: 'text-yellow-500', bg: 'bg-yellow-100 dark:bg-yellow-900/30', trend: '-8%' },
+  { key: 'carbonFootprint', value: '125 tCO₂', icon: Leaf, color: 'text-saudi-green', bg: 'bg-palm-100 dark:bg-palm-900/30', trend: '-12%' },
+  { key: 'electricityUsage', value: '4,200 kWh', icon: Zap, color: 'text-gold', bg: 'bg-gold-light', trend: '-8%' },
   { key: 'waterUsage', value: '1,800 L', icon: Droplets, color: 'text-blue-500', bg: 'bg-blue-100 dark:bg-blue-900/30', trend: '-5%' },
   { key: 'transportEmissions', value: '580 kg CO₂', icon: Bus, color: 'text-orange-500', bg: 'bg-orange-100 dark:bg-orange-900/30', trend: '-15%' },
-  { key: 'sustainabilityScoreNav', value: '89/100', icon: TrendingUp, color: 'text-primary-500', bg: 'bg-primary-100 dark:bg-primary-900/30', trend: '+4%' },
+  { key: 'sustainabilityScoreNav', value: '89/100', icon: TrendingUp, color: 'text-saudi-green', bg: 'bg-palm-100 dark:bg-palm-900/30', trend: '+4%' },
 ];
 
 const alerts = [
   { type: 'critical', message: 'highACUsage', icon: AlertCircle, color: 'text-red-500', bg: 'bg-red-50 dark:bg-red-900/20' },
   { type: 'warning', message: 'possibleWaterLeak', icon: AlertTriangle, color: 'text-yellow-500', bg: 'bg-yellow-50 dark:bg-yellow-900/20' },
-  { type: 'success', message: 'transportImproved', icon: CheckCircle, color: 'text-green-500', bg: 'bg-green-50 dark:bg-green-900/20' },
+  { type: 'success', message: 'transportImproved', icon: CheckCircle, color: 'text-palm-500', bg: 'bg-palm-50 dark:bg-palm-900/20' },
 ];
 
 const quickActions = [
@@ -102,12 +102,12 @@ export default function Dashboard() {
       {/* Stats */}
       <div className="grid grid-cols-2 lg:grid-cols-5 gap-4">
         {statCards.map((card) => (
-          <motion.div key={card.key} variants={fadeInUp} className="card p-5">
+          <motion.div key={card.key} variants={fadeInUp} className="card-saudi stat-card p-5">
             <div className="flex items-center justify-between mb-3">
               <div className={`w-10 h-10 rounded-xl ${card.bg} flex items-center justify-center`}>
                 <card.icon className={`w-5 h-5 ${card.color}`} />
               </div>
-              <span className={`text-xs font-medium ${card.trend.startsWith('+') ? 'text-green-500' : 'text-green-500'}`}>
+              <span className={`text-xs font-medium ${card.trend.startsWith('+') ? 'text-palm-500' : 'text-palm-500'}`}>
                 {card.trend}
               </span>
             </div>
@@ -120,14 +120,14 @@ export default function Dashboard() {
       {/* Charts row */}
       <div className="grid lg:grid-cols-3 gap-6">
         {/* Carbon Trend */}
-        <motion.div variants={fadeInUp} className="card p-5 lg:col-span-2">
+        <motion.div variants={fadeInUp} className="card-saudi p-5 lg:col-span-2">
           <h3 className="text-lg font-semibold mb-4">{t('monthlyCarbonTrend', lang)}</h3>
           <ResponsiveContainer width="100%" height={250}>
             <AreaChart data={carbonData}>
               <defs>
                 <linearGradient id="carbonGrad" x1="0" y1="0" x2="0" y2="1">
-                  <stop offset="5%" stopColor="#10b981" stopOpacity={0.3} />
-                  <stop offset="95%" stopColor="#10b981" stopOpacity={0} />
+                  <stop offset="5%" stopColor="#165d31" stopOpacity={0.3} />
+                  <stop offset="95%" stopColor="#165d31" stopOpacity={0} />
                 </linearGradient>
               </defs>
               <CartesianGrid strokeDasharray="3 3" stroke="var(--border-color)" />
@@ -140,13 +140,13 @@ export default function Dashboard() {
                   borderRadius: '12px',
                 }}
               />
-              <Area type="monotone" dataKey="value" stroke="#10b981" fillOpacity={1} fill="url(#carbonGrad)" />
+              <Area type="monotone" dataKey="value" stroke="#165d31" fillOpacity={1} fill="url(#carbonGrad)" />
             </AreaChart>
           </ResponsiveContainer>
         </motion.div>
 
         {/* Emission Breakdown */}
-        <motion.div variants={fadeInUp} className="card p-5">
+        <motion.div variants={fadeInUp} className="card-saudi p-5">
           <h3 className="text-lg font-semibold mb-4">{t('emissionBreakdown', lang)}</h3>
           <ResponsiveContainer width="100%" height={200}>
             <PieChart>
@@ -188,7 +188,7 @@ export default function Dashboard() {
 
       {/* Second charts row */}
       <div className="grid lg:grid-cols-3 gap-6">
-        <motion.div variants={fadeInUp} className="card p-5">
+        <motion.div variants={fadeInUp} className="card-saudi p-5">
           <h3 className="text-lg font-semibold mb-4">{t('energyConsumption', lang)}</h3>
           <ResponsiveContainer width="100%" height={200}>
             <BarChart data={energyData}>
@@ -202,12 +202,12 @@ export default function Dashboard() {
                   borderRadius: '12px',
                 }}
               />
-              <Bar dataKey="value" fill="#f59e0b" radius={[4, 4, 0, 0]} />
+              <Bar dataKey="value" fill="#c9a84c" radius={[4, 4, 0, 0]} />
             </BarChart>
           </ResponsiveContainer>
         </motion.div>
 
-        <motion.div variants={fadeInUp} className="card p-5">
+        <motion.div variants={fadeInUp} className="card-saudi p-5">
           <h3 className="text-lg font-semibold mb-4">{t('waterUsageChart', lang)}</h3>
           <ResponsiveContainer width="100%" height={200}>
             <BarChart data={waterData}>
@@ -226,7 +226,7 @@ export default function Dashboard() {
           </ResponsiveContainer>
         </motion.div>
 
-        <motion.div variants={fadeInUp} className="card p-5">
+        <motion.div variants={fadeInUp} className="card-saudi p-5">
           <h3 className="text-lg font-semibold mb-4">{t('transportEmissionsChart', lang)}</h3>
           <ResponsiveContainer width="100%" height={200}>
             <BarChart data={transportData}>
@@ -248,7 +248,7 @@ export default function Dashboard() {
 
       {/* Alerts & Quick Actions */}
       <div className="grid lg:grid-cols-2 gap-6">
-        <motion.div variants={fadeInUp} className="card p-5">
+        <motion.div variants={fadeInUp} className="card-saudi p-5">
           <h3 className="text-lg font-semibold mb-4">{t('liveAlerts', lang)}</h3>
           <div className="space-y-3">
             {alerts.map((alert) => (
@@ -260,7 +260,7 @@ export default function Dashboard() {
           </div>
         </motion.div>
 
-        <motion.div variants={fadeInUp} className="card p-5">
+        <motion.div variants={fadeInUp} className="card-saudi p-5">
           <h3 className="text-lg font-semibold mb-4">{t('quickActions', lang)}</h3>
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
             {quickActions.map((action) => (

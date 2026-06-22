@@ -43,8 +43,8 @@ export default function Alerts() {
 
   const typeConfig = {
     critical: { icon: AlertCircle, color: 'text-red-500', bg: 'bg-red-50 dark:bg-red-900/20', border: 'border-red-200 dark:border-red-900/50' },
-    warning: { icon: AlertTriangle, color: 'text-yellow-500', bg: 'bg-yellow-50 dark:bg-yellow-900/20', border: 'border-yellow-200 dark:border-yellow-900/50' },
-    resolved: { icon: CheckCircle, color: 'text-green-500', bg: 'bg-green-50 dark:bg-green-900/20', border: 'border-green-200 dark:border-green-900/50' },
+    warning: { icon: AlertTriangle, color: 'text-gold', bg: 'bg-gold-light', border: 'border-gold/50' },
+    resolved: { icon: CheckCircle, color: 'text-palm-500', bg: 'bg-palm-50 dark:bg-palm-900/20', border: 'border-palm-200 dark:border-palm-900/50' },
   };
 
   return (
@@ -54,7 +54,7 @@ export default function Alerts() {
       className="space-y-6"
     >
       <div className="flex flex-wrap items-center justify-between gap-4">
-        <h2 className="text-2xl font-bold">{t('alerts', lang)}</h2>
+        <h2 className="text-2xl font-bold font-display">{t('alerts', lang)}</h2>
         <div className="flex gap-2">
           {(['all', 'critical', 'warning', 'resolved'] as const).map((f) => (
             <button
@@ -62,7 +62,7 @@ export default function Alerts() {
               onClick={() => setFilter(f)}
               className={`px-4 py-2 rounded-xl text-sm font-medium transition-all ${
                 filter === f
-                  ? 'bg-primary-500 text-white shadow-lg shadow-primary-500/25'
+                  ? 'bg-saudi-green text-white shadow-lg shadow-saudi-green/20'
                   : 'bg-[var(--bg-secondary)] text-[var(--text-secondary)] hover:text-[var(--text-primary)]'
               }`}
             >
@@ -74,8 +74,8 @@ export default function Alerts() {
 
       <div className="space-y-3">
         {filtered.length === 0 && (
-          <div className="card p-12 text-center">
-            <CheckCircle className="w-12 h-12 text-green-500 mx-auto mb-4" />
+          <div className="card-saudi p-12 text-center">
+            <CheckCircle className="w-12 h-12 text-palm-500 mx-auto mb-4" />
             <p className="text-lg font-medium">{lang === 'ar' ? 'لا توجد تنبيهات' : 'No alerts'}</p>
           </div>
         )}
@@ -89,7 +89,7 @@ export default function Alerts() {
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: 20 }}
-              className={`card p-5 border-l-4 ${config.border} ${config.bg}`}
+              className={`card-saudi p-5 border-l-4 ${config.border} ${config.bg}`}
             >
               <div className="flex items-start gap-4">
                 <div className={`w-10 h-10 rounded-xl ${config.bg} flex items-center justify-center flex-shrink-0`}>
@@ -110,7 +110,7 @@ export default function Alerts() {
                     </span>
                     {alert.building && (
                       <span className="flex items-center gap-1">
-                        <span className="w-2 h-2 rounded-full bg-primary-500" />
+                        <span className="w-2 h-2 rounded-full bg-saudi-green" />
                         {alert.building}
                       </span>
                     )}
@@ -120,7 +120,7 @@ export default function Alerts() {
                   <div className="flex items-center gap-2 flex-shrink-0">
                     <button
                       onClick={() => handleResolve(alert.id)}
-                      className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-green-100 dark:bg-green-900/30 text-green-600 dark:text-green-400 text-sm font-medium hover:bg-green-200 dark:hover:bg-green-900/50 transition-colors"
+                      className="flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-palm-100 dark:bg-palm-900/30 text-palm-600 dark:text-palm-400 text-sm font-medium hover:bg-palm-200 dark:hover:bg-palm-900/50 transition-colors"
                     >
                       <Check className="w-3.5 h-3.5" />
                       {t('resolve', lang)}
